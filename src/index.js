@@ -196,23 +196,49 @@
 // });
 // console.log(newNameArr);
 
+// /**
+//  * 三項演算子
+//  */
+// //ある条件?条件がTrueの時:条件がFalseの時
+// const val1 = 1 < 0 ? "trueです" : "Falseです";
+// console.log(val1);
+
+// //　関数を使うかどうかの判断で三項演算子を使用
+// const num = 1300;
+// //console.log(num.toLocaleString());
+
+// const formattedNum =
+//   typeof num === "number" ? num.toLocaleString() : "数値を入力してください";
+// console.log(formattedNum);
+
+// //　関数のreturnに三項演算子を使用
+// const checkSum = (num1, num2) => {
+//   return num1 + num2 >= 100 ? "100以上です" : "範囲内です";
+// };
+// console.log(checkSum(50, 49));
+
 /**
- * 三項演算子
+ * 論理演算子の本当の意味を知ろう　&& ||
  */
-//ある条件?条件がTrueの時:条件がFalseの時
-const val1 = 1 < 0 ? "trueです" : "Falseです";
-console.log(val1);
+const flag1 = true;
+const flag2 = false;
 
-//　関数を使うかどうかの判断で三項演算子を使用
-const num = 1300;
-//console.log(num.toLocaleString());
+if (flag1 || flag2) {
+  console.log("1か2はTrue");
+}
 
-const formattedNum =
-  typeof num === "number" ? num.toLocaleString() : "数値を入力してください";
-console.log(formattedNum);
+if (flag1 && flag2) {
+  console.log("1も2もTrue");
+}
 
-//　関数のreturnに三項演算子を使用
-const checkSum = (num1, num2) => {
-  return num1 + num2 >= 100 ? "100以上です" : "範囲内です";
-};
-console.log(checkSum(50, 49));
+// ||:パイプライン
+// ||は左がfalseなら右を返す.左がTrueなら"左"を返す。
+const num = 100;
+const fee = num || "金額未設定です";
+console.log(fee);
+
+// &&：アンパサンド
+// &&は左がTrueなら"右"を返す.左がFalseなら左を返す。
+const num2 = null;
+const fee2 = num2 && "何か設定されました";
+console.log(fee2);
