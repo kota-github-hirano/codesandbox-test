@@ -107,12 +107,52 @@
 // const message4 = `名前は${name}です。年齢は${age}です!`;
 // console.log(message4);
 
+// /**
+//  * デフォルト値、引数など
+//  */
+// const sayHello = (name) => console.log(`こんにちは！${name}さん`);
+// sayHello("平野");
+// sayHello();
+// const sayHello1 = (name = "ゲスト") => console.log(`こんにちは！${name}さん`);
+// sayHello1("平野");
+// sayHello1();
+
 /**
- * デフォルト値、引数など
+ * スプレッド構文
  */
-const sayHello = (name) => console.log(`こんにちは！${name}さん`);
-sayHello("平野");
-sayHello();
-const sayHello1 = (name = "ゲスト") => console.log(`こんにちは！${name}さん`);
-sayHello1("平野");
-sayHello1();
+
+//配列の展開
+const arr1 = [1, 2];
+console.log(arr1);
+console.log(...arr1);
+
+const sumFunc = (num1, num2) => console.log(num1 + num2);
+sumFunc(arr1[0], arr1[1]);
+//要素が順番に渡される(順番に処理する)
+sumFunc(...arr1);
+
+//　まとめる
+const arr2 = [1, 2, 3, 4, 5];
+const [num1, num2, ...arr3] = arr2;
+console.log(num1);
+console.log(num2);
+console.log(arr3);
+
+//　配列のコピーや結合
+// 元の配列の参照は切れる
+const arr4 = [10, 20];
+const arr5 = [30, 40];
+
+const arr6 = [...arr4];
+console.log(arr6);
+const arr7 = [...arr4, ...arr5];
+console.log(arr7);
+arr6[0] = 100;
+console.log(arr6);
+console.log(arr4);
+
+//　＝で渡すと参照も引き継ぐので注意
+// const arr8 = arr4;
+// arr8[0] = 100;
+// console.log(arr8);
+// console.log(arr4);
