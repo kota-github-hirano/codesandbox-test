@@ -117,42 +117,81 @@
 // sayHello1("平野");
 // sayHello1();
 
+// /**
+//  * スプレッド構文
+//  */
+
+// //配列の展開
+// const arr1 = [1, 2];
+// console.log(arr1);
+// console.log(...arr1);
+
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// //要素が順番に渡される(順番に処理する)
+// sumFunc(...arr1);
+
+// //　まとめる
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, ...arr3] = arr2;
+// console.log(num1);
+// console.log(num2);
+// console.log(arr3);
+
+// //　配列のコピーや結合
+// // 元の配列の参照は切れる
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
+
+// const arr6 = [...arr4];
+// console.log(arr6);
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
+// arr6[0] = 100;
+// console.log(arr6);
+// console.log(arr4);
+
+// //　＝で渡すと参照も引き継ぐので注意
+// // const arr8 = arr4;
+// // arr8[0] = 100;
+// // console.log(arr8);
+// // console.log(arr4);
+
 /**
- * スプレッド構文
+ * mapやfilterを使った配列の処理
  */
 
-//配列の展開
-const arr1 = [1, 2];
-console.log(arr1);
-console.log(...arr1);
+const nameArr = ["田中", "平野", "林"];
+//for文を使う方法
+for (let index = 0; index < nameArr.length; index++) {
+  console.log(`${index + 1}番目は${nameArr[index]}です`);
+}
 
-const sumFunc = (num1, num2) => console.log(num1 + num2);
-sumFunc(arr1[0], arr1[1]);
-//要素が順番に渡される(順番に処理する)
-sumFunc(...arr1);
+// map関数
+// 順番にnameに入ってくる
+const nameArr2 = nameArr.map((name) => {
+  return name;
+});
+console.log(nameArr2);
 
-//　まとめる
-const arr2 = [1, 2, 3, 4, 5];
-const [num1, num2, ...arr3] = arr2;
-console.log(num1);
-console.log(num2);
-console.log(arr3);
+//　map関数を使う方法
+// 第二引数にはindexが入る
+nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
 
-//　配列のコピーや結合
-// 元の配列の参照は切れる
-const arr4 = [10, 20];
-const arr5 = [30, 40];
+// filter関数
+// 条件に一致するもののみ取り出す
+const numArr = [1, 2, 3, 4, 5];
+const newNumArr = numArr.filter((num) => {
+  return num % 2 === 1;
+});
+console.log(newNumArr);
 
-const arr6 = [...arr4];
-console.log(arr6);
-const arr7 = [...arr4, ...arr5];
-console.log(arr7);
-arr6[0] = 100;
-console.log(arr6);
-console.log(arr4);
-
-//　＝で渡すと参照も引き継ぐので注意
-// const arr8 = arr4;
-// arr8[0] = 100;
-// console.log(arr8);
-// console.log(arr4);
+//　平野以外に"さん"を付けたい場合
+const newNameArr = nameArr.map((name) => {
+  if (name === "平野") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(newNameArr);
