@@ -157,41 +157,62 @@
 // // console.log(arr8);
 // // console.log(arr4);
 
+// /**
+//  * mapやfilterを使った配列の処理
+//  */
+
+// const nameArr = ["田中", "平野", "林"];
+// //for文を使う方法
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(`${index + 1}番目は${nameArr[index]}です`);
+// }
+
+// // map関数
+// // 順番にnameに入ってくる
+// const nameArr2 = nameArr.map((name) => {
+//   return name;
+// });
+// console.log(nameArr2);
+
+// //　map関数を使う方法
+// // 第二引数にはindexが入る
+// nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
+
+// // filter関数
+// // 条件に一致するもののみ取り出す
+// const numArr = [1, 2, 3, 4, 5];
+// const newNumArr = numArr.filter((num) => {
+//   return num % 2 === 1;
+// });
+// console.log(newNumArr);
+
+// //　平野以外に"さん"を付けたい場合
+// const newNameArr = nameArr.map((name) => {
+//   if (name === "平野") {
+//     return name;
+//   } else {
+//     return `${name}さん`;
+//   }
+// });
+// console.log(newNameArr);
+
 /**
- * mapやfilterを使った配列の処理
+ * 三項演算子
  */
+//ある条件?条件がTrueの時:条件がFalseの時
+const val1 = 1 < 0 ? "trueです" : "Falseです";
+console.log(val1);
 
-const nameArr = ["田中", "平野", "林"];
-//for文を使う方法
-for (let index = 0; index < nameArr.length; index++) {
-  console.log(`${index + 1}番目は${nameArr[index]}です`);
-}
+//　関数を使うかどうかの判断で三項演算子を使用
+const num = 1300;
+//console.log(num.toLocaleString());
 
-// map関数
-// 順番にnameに入ってくる
-const nameArr2 = nameArr.map((name) => {
-  return name;
-});
-console.log(nameArr2);
+const formattedNum =
+  typeof num === "number" ? num.toLocaleString() : "数値を入力してください";
+console.log(formattedNum);
 
-//　map関数を使う方法
-// 第二引数にはindexが入る
-nameArr.map((name, index) => console.log(`${index + 1}番目は${name}です`));
-
-// filter関数
-// 条件に一致するもののみ取り出す
-const numArr = [1, 2, 3, 4, 5];
-const newNumArr = numArr.filter((num) => {
-  return num % 2 === 1;
-});
-console.log(newNumArr);
-
-//　平野以外に"さん"を付けたい場合
-const newNameArr = nameArr.map((name) => {
-  if (name === "平野") {
-    return name;
-  } else {
-    return `${name}さん`;
-  }
-});
-console.log(newNameArr);
+//　関数のreturnに三項演算子を使用
+const checkSum = (num1, num2) => {
+  return num1 + num2 >= 100 ? "100以上です" : "範囲内です";
+};
+console.log(checkSum(50, 49));
